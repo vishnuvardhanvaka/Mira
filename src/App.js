@@ -8,7 +8,7 @@ import Home from './components/Home';
 import KnowledgeBase from './components/Home_page_molecules/KnowledgeBase';
 import Content from './components/Home_page_molecules/Content';
 
-const URL = 'http://127.0.0.1:8000/';
+const URL = 'https://vishnuvardhanvaka-mira-backend-1eb4ff3.hf.space/';
 function App() {
   const [LoggedIn, setLoggedIn] = useState(false);
   
