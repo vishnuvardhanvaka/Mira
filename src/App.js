@@ -7,6 +7,7 @@ import LandingPage from './components/LandingPage';
 import Home from './components/Home';
 import KnowledgeBase from './components/Home_page_molecules/KnowledgeBase';
 import Content from './components/Home_page_molecules/Content';
+import PrivateRoutes from './utils/PrivateRoutes';
 
 const URL = 'https://vishnuvardhanvaka-mira-backend-1eb4ff3.hf.space/';
 function App() {
@@ -20,6 +21,7 @@ function App() {
 
   useEffect(()=>{
     const isLoggedIn=checkLoginStatus();
+    console.log(localStorage.getItem('access_token'))
     setLoggedIn(isLoggedIn);
   },[]);
 
@@ -31,20 +33,23 @@ function App() {
       <Router>
         <Routes>
           <Route path="/signin" element={<Login isLogin={handleLogin} URL={URL} />} />
-          <Route path="/signup" element={<Signup isLogin={handleLogin} URL={URL} />} />
+          <Route path="/signup" element={<Signup URL={URL} />} />
           <Route path="/" element={<LandingPage />} />
           <Route path='/home' element={<Home />} />
           <Route path='/home/content' element={<Content/>} />
-          <Route
+          <Route element={<PrivateRoutes />}>
+            <Route element={<Chat/>} path='/chat' exact />
+          </Route>
+          {/* <Route
             path="/chat"
             element={
               localStorage.getItem('access_token') ? (
                 <Chat URL={URL} />
               ) : (
-                <Navigate to="/signin" replace />
+                <Login isLogin={handleLogin} URL={URL} />
               )
             }
-          />
+          /> */}
         </Routes>
       </Router>
   );
