@@ -78,7 +78,7 @@ function Chat({ URL }) {
       },
       body: form
     }
-    console.log(URL + 'chat/', fetchReq,'****************')
+    console.log(URL,URL+'chat/', fetchReq,'****************')
     const response = await fetch(URL + 'chat/', fetchReq)
     const status_code = response.status
     const data = await response.json()
