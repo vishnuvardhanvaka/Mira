@@ -38,7 +38,7 @@ function App() {
           <Route path='/home' element={<Home />} />
           <Route path='/home/content' element={<Content/>} />
           <Route element={<PrivateRoutes />}>
-            <Route element={<Chat/>} path='/chat' exact />
+            <Route element={<Chat URL={URL} />} path='/chat' exact />
           </Route>
           {/* <Route
             path="/chat"
