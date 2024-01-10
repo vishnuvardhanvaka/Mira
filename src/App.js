@@ -33,7 +33,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/signin" element={<Login isLogin={handleLogin} URL={URL} />} />
-          <Route path="/signup" element={<Signup URL={URL} />} />
+          <Route path="/signup" element={<Signup URL={"https://mira-signup-back.vercel.app/"} />} />
           <Route path="/" element={<LandingPage />} />
           <Route path='/home' element={<Home />} />
           <Route path='/home/content' element={<Content/>} />
