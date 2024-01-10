@@ -67,7 +67,7 @@ function Signup({ URL }) {
         e.preventDefault()
         let tempError = SignupValidation(credentials)
         setErrors(tempError)
-        console.log(credentials, tempError, 'validating otp %%%%%%')
+        // console.log(credentials, tempError, 'validating otp %%%%%%')
         if (!tempError.otp) {
             setPreloder(true)
             const form = new FormData();
@@ -90,12 +90,10 @@ function Signup({ URL }) {
             const status_code = response.status
             const data = await response.json()
             if (status_code == 200) {
-                console.log('successfully signed up...')
                 setisSignedup(true)
                 setPreloder(false)
                 // navigate('/')
             }
-            console.log(status_code, data, isSignedup, '^^^^^^^^^^^^^')
         }
         else {
             setCredentials({ ...credentials, ['otp']: '' })
@@ -113,7 +111,6 @@ function Signup({ URL }) {
         let tempError = SignupValidation(credentials)
         setErrors(tempError)
         setClickSendOTP(true)
-        console.log(credentials, tempError, 'sending otp %%%%%%')
         if (tempError.username) {
             usernameInputRef.current.focus();
         }
@@ -134,7 +131,7 @@ function Signup({ URL }) {
         }
 
         if (!tempError.email && !tempError.location && !tempError.babyDOB && !tempError.phNo && !tempError.password && !tempError.username) {
-            console.log(credentials)
+            
             setFetching(true)
             const form = new FormData();
             form.append('email', credentials.email)
@@ -146,7 +143,6 @@ function Signup({ URL }) {
             const response = await fetch(URL + 'sendOTP/', fetchReq)
             const status_code = response.status
             const OTP = await response.json()
-            console.log(OTP)
 
             setFetching(false)
             if (status_code == 200) {
@@ -473,9 +469,10 @@ function Signup({ URL }) {
                                             )}
                                             <div className="mt-6">
                                                 <div className="mt-6 text-center ">
-                                                    <Link to='/' className="text-sm text-blue-500 hover:underline dark:text-blue-400">
+                                                    <Link to='/signin' className="text-sm text-blue-500 hover:underline dark:text-blue-400">
                                                         Already have an account?
                                                     </Link>
+
                                                 </div>
                                             </div>
                                         </div>
