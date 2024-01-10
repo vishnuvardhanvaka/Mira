@@ -22,7 +22,6 @@ function App() {
 
   useEffect(()=>{
     const isLoggedIn=checkLoginStatus();
-    console.log(localStorage.getItem('access_token'))
     setLoggedIn(isLoggedIn);
   },[]);
 
