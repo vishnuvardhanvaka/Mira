@@ -10,6 +10,7 @@ import Content from './components/Home_page_molecules/Content';
 import PrivateRoutes from './utils/PrivateRoutes';
 
 const URL = 'https://vishnuvardhanvaka-mira-backend-1eb4ff3.hf.space/';
+const SURL= 'https://mira-signup-back.vercel.app/';
 function App() {
   const [LoggedIn, setLoggedIn] = useState(false);
   
@@ -33,7 +34,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/signin" element={<Login isLogin={handleLogin} URL={URL} />} />
-          <Route path="/signup" element={<Signup URL={"https://mira-signup-back.vercel.app/"} />} />
+          <Route path="/signup" element={<Signup URL={SURL} />} />
           <Route path="/" element={<LandingPage />} />
           <Route path='/home' element={<Home />} />
           <Route path='/home/content' element={<Content/>} />
